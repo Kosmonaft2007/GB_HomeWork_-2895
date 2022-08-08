@@ -8,4 +8,18 @@
 32679 -> 6
 */
 
-Console.WriteLine("Hello, World!");
+
+        Console.Clear();
+        Console.Write("Введи  число больше 4 символов: ");
+
+        int threeNumber = Convert.ToInt32(Console.ReadLine());
+       string stringNumber = Convert.ToString(threeNumber);
+       
+       if (stringNumber.Length > 2) 
+        Console.WriteLine(stringNumber[2]);
+       else 
+            Console.WriteLine("третьей цифры нет");
+    
+
+        
+    
