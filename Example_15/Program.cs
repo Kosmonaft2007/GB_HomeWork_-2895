@@ -6,5 +6,10 @@
 1 -> нет
 */
 
+Console.Clear();
+Console.WriteLine("Введиде день недели от 1 до 7");
+int dayNumber = Convert.ToInt32(Console.ReadLine());
 
-Console.WriteLine("Hello, World!");
+if(dayNumber == 6 || dayNumber == 7)
+Console.WriteLine("Yes");
+else Console.WriteLine("No");
