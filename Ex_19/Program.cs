@@ -3,55 +3,55 @@
 */
 // Console.WriteLine("Hello, World!");
 
-    
-    
-        Console.Clear();
-        System.Console.WriteLine();
 
 
-        System.Console.WriteLine("ВВедите число");
-        string str = Console.ReadLine();
-        // int Number = Convert.ToInt32(str);
-        // int[] count = new int[Number];
-        int count = str.Lengrh;
-        // string str = Convert.ToString(Number);
+Console.Clear();
+System.Console.WriteLine();
 
 
-        // int d = 0;
-        // bool f = isPalidrom(str);
-        // if (d == count)
-        //     System.Console.WriteLine("1");
-        // else 
-        // System.Console.WriteLine("0");
-        // System.Console.WriteLine(isPalidrom);
-   void NumberArray (){
+System.Console.WriteLine("ВВедите число");
+string str = Console.ReadLine(); //100
+int Number = Convert.ToInt32(str);
+int[] count = new int[str.Length];
+
+
+void NumberArray()
+{
     /*
     1 какой метод войт или инт??
     2 как реализовать проверку на количество индексов?? 
     */
-    }
+}
 
-    bool isPalidrom() //(int str)
-    {
-        // Boolean f = 1;
+// bool isPalidrom() //(int str)
+// {
+//     // Boolean f = 1;
+
+//     // int count = Number.Length;
+//     for (int i = 0; i < count; i++)
+//     {
+//         while (str[i] != str[count - 1 - i])
+//         {
+//             // d++;
+//             // f = 0;
+//             return false;
+//             break;
+//         }
+
+//     }
+//     return true;
+// }
+// // isPalidrom(args);
+// // Main (args);
+// int[] res = isPalidrom($"{str}");
+// // System.Console.WriteLine(res);
+
+// // PS:  
+// // Интерполяция ????
+// for (int  vjn  = 0;  vjn  < ghjv;  vjn ++)
+// {
+//     for (int index  = 0; inde < length; inde++)
+//     {
         
-        // int count = Number.Length;
-        for (int i = 0; i < count; i++)
-        {
-            while (str[i] != str[count - 1 - i])
-            {
-                // d++;
-                // f = 0;
-                return false;
-                break;
-            }
-            
-        }
-        return true;
-    }
-    // isPalidrom(args);
-    // Main (args);
-    int[] res = isPalidrom( $"{str}");
-    // System.Console.WriteLine(res);
-
-// PS: Ну ни ХуЯ не пойму!!! 
+//     }
+// }
