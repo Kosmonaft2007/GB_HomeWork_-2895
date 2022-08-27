@@ -37,10 +37,10 @@ void PrintArray(int[] array)
         sum = array[i];
         if (array[i] > max) max = array[i];
         if ( min > array[i] ) min = array[i];
-        sum = max + min;
+        sum = max - min;
     }
     System.Console.WriteLine();
-    System.Console.WriteLine($"Сумма чиселсоcтаваляет {sum} ");
+    System.Console.WriteLine($"Pазницу между максимальным и минимальным элементов массива {sum} ");
     System.Console.WriteLine();
 }
 PrintArray(FillArray(size));
