@@ -1,38 +1,15 @@
-﻿// Без методов черновой 
-/*
-int m = 3;
-int n = 5;
-int[,] matrix = new int[m,n];
-
-// new Random().Next(1,  10); 
-for (int row = 0; row < m; row++) //  по строчкам 
-{
-    for (int column = 0; column < n; column++) //  по колонкам  
-    {
-        matrix[row, column] = new Random().Next(1,  10); 
-        System.Console.Write($"{matrix[row, column],3}");
-    }
-    System.Console.WriteLine();
-}
+﻿/*
+Задача 47. Задайте двумерный массив размером m×n, заполненный случайными вещественными числами.
 */
 
-// с методами 
-/*
-1 - создание массива 
-2 - заполнение массива 
-3 - печать 
-4 -
-
-*/
-
-int [,] CreateArray(int rows, int сolumns) // метот который принимает столбцы и строки 
+int[,] CreateArray(int rows, int сolumns) // метот который принимает столбцы и строки 
 {
-    return new int [rows,  сolumns];
+    return new int[rows, сolumns];
 }
 
 void FillArray(int[,] array, int minValue, int maxValue)
 {
-   
+
     int rows = array.GetLength(0);
     int columns = array.GetLength(1);
 
@@ -40,13 +17,13 @@ void FillArray(int[,] array, int minValue, int maxValue)
     {
         for (int column = 0; column < columns; column++) //  по колонкам  
         {
-            array[row, column] = new Random().Next(minValue,  maxValue); 
+            array[row, column] = new Random().Next(minValue, maxValue);
         }
-        
+
     }
 }
 
-void PrintArray (int [,] array)
+void PrintArray(int[,] array)
 {
     int rows = array.GetLength(0);
     int columns = array.GetLength(1);
@@ -63,12 +40,12 @@ void PrintArray (int [,] array)
 
 int Input(string text)
 {
-    
+
     // int Parse(); //  преобразовать строку в число 
     // int.TryParse(); // я попробую преобразовать, если получится лили не получится я сообщу 
     bool f = false;
     int number = 0;
-    while( !f ) //цикл пока не фолс
+    while (!f) //цикл пока не фолс
     {
         System.Console.WriteLine(text);
         string str = Console.ReadLine();
@@ -77,19 +54,24 @@ int Input(string text)
     return number;
 }
 
-void Main ()
+void Main()
 {
-     int m = Input("rows");
+     Console.Clear();
+
+    Console.WriteLine($"\nЗадача 47. Задайте двумерный массив размером m×n, заполненный случайными вещественными числами.\n");
+
+
+    int m = Input("rows");
     int n = Input("columns");
     // int[,] matrix = CreateArray(m,n);
 
-if (m>= 0 && n >=0)
-{int [,] matrix = CreateArray( n,m);
-FillArray(matrix, 10, 20);
-PrintArray(matrix);
+    if (m >= 0 && n >= 0)
+    {
+        int[,] matrix = CreateArray(n, m);
+        FillArray(matrix, 10, 20);
+        PrintArray(matrix);
 
-Console.WriteLine("Hello, World!");
-}
+    }
 
 }
 
