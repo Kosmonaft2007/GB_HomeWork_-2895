@@ -10,7 +10,7 @@ int[,] CreateArray(int rows, int сolumns) // метот который прин
 
 void FillArray(int[,] array, int minValue, int maxValue)
 {
-
+Random rend = new Random(2022);
     int rows = array.GetLength(0);
     int columns = array.GetLength(1);
 
@@ -18,7 +18,7 @@ void FillArray(int[,] array, int minValue, int maxValue)
     {
         for (int column = 0; column < columns; column++) //  по колонкам  
         {
-            array[row, column] = new Random().Next(minValue, maxValue);
+            array[row, column] = rend.Next(minValue, maxValue);
         }
 
     }
@@ -39,32 +39,39 @@ void PrintArray(int[,] array)
     }
 }
 
-void SortArray(int[] inArray)
+int[,] SortArray(int[,] inArray)
+
 {
-    for (int i = 0; i < inArray.Length; i++)
-        for (int j = 0; j < inArray.Length - i - 1; j++)
+    int rows = inArray.GetLength(0);
+    int columns = inArray.GetLength(1);
+
+    for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < columns - 1; j++)
         {
-            if (inArray[j] > inArray[j + 1])
-            {
-                int temp = inArray[j];
-                inArray[j] = inArray[j + 1];
-                inArray[j + 1] = temp;
-            }
+                if (inArray[i, j] > inArray[i, j + 1]) {
+                    int temp = inArray[i, j];
+                    inArray[i, j] = inArray[i, j + 1];
+                    inArray[i, j + 1] = temp;
+                }
         }
+    }
+    return inArray;
 }
 
 void Main()
 {
-    // int size = 10;
 
     Console.Clear();
 
     Console.WriteLine($"\n Задача 54: Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.\n");
 
-    // MMArray(FillArray(size));
-    SortArray(PrintArray(FillArray(3,4)));
 
-
+    int [,] array = CreateArray(6,6);
+    FillArray(array, 0, 10);
+    
+    int[,] arr =  SortArray(array);
+    PrintArray(arr);
 }
 
 Main();
