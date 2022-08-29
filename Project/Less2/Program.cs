@@ -33,36 +33,65 @@ namespace ConsoleApplication3
 
         static void Main(string[] args)
         {
-            // string[] MyArray_1 = new string[] { "один", "два", "три", "четыре" };
-            // string[] MyArray_2 = new string[] {"один","один", "один", "один", "два", "два", "два", "три", "три"};
+            // // string[] MyArray_1 = new string[] { "один", "два", "три", "четыре" };
+            // // string[] MyArray_2 = new string[] {"один","один", "один", "один", "два", "два", "два", "три", "три"};
 
 
-            Console.Write("Введи первые 5 чисел : ");
+            // Console.Write("Введи первые 5 чисел : ");
             
-            string nameSec = Console.ReadLine();
-            string[] MyArray_1 = nameSec.Split(' ');
+            // string nameSec = Console.ReadLine();
+            // string[] MyArray_1 = nameSec.Split(' ');
 
-            Console.Write("Введи вторые 5 чисел : ");
+            // Console.Write("Введи вторые 5 чисел : ");
            
-            string nameSec2 = Console.ReadLine();
-            string[] MyArray_2 = nameSec2.Split(' ');
-            int Count = 0;
+            // string nameSec2 = Console.ReadLine();
+            // string[] MyArray_2 = nameSec2.Split(' ');
+            // int Count = 0;
 
-            for (int i = 0; i < MyArray_1.Length; i++)
+            // for (int i = 0; i < MyArray_1.Length; i++)
+            // {
+            //     for (int j = 0; j < MyArray_2.Length; j++)
+            //     {
+            //         if (MyArray_1[i] == MyArray_2[j])
+            //             Count++;
+            //     }
+            //     Console.WriteLine("Элемент массива MyArray_1: '{0}' повторяются в массиве MyArray_2 {1} раз", MyArray_1[i], Count);
+
+            //     Console.WriteLine("Совпадение {1} элементов", MyArray_1[i], Count);
+            //     Count = 0;
+            // }
+
+
+            // Console.ReadKey(true);
+
+         
+            char[] str3 = new char[] { '1', '2', '3' };
+            char[] str2 = new char[] { '1', '2', '4' };
+            
+            if (str3.Length == str2.Length)
             {
-                for (int j = 0; j < MyArray_2.Length; j++)
+                for(var i = 0; i < str3.Length; i++)
                 {
-                    if (MyArray_1[i] == MyArray_2[j])
-                        Count++;
+                    if (str3[i].Equals(str2[i]))
+                    {
+                        if(i == str3.Length-1)
+                        {
+                            Console.WriteLine("Arrays are same");
+                        }
+                        continue;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Arrays are difference");
+                        break;
+                    }
                 }
-                Console.WriteLine("Элемент массива MyArray_1: '{0}' повторяются в массиве MyArray_2 {1} раз", MyArray_1[i], Count);
-
-                Console.WriteLine("Совпадение {1} элементов", MyArray_1[i], Count);
-                Count = 0;
             }
-
-
-            Console.ReadKey(true);
+            else
+            {
+                Console.WriteLine("Arrays are difference");
+            }
+         
         }
     }
 }
