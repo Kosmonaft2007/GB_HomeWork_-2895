@@ -10,7 +10,8 @@ int[,] CreateArray(int rows, int сolumns) // метот который прин
 
 void FillArray(int[,] array, int minValue, int maxValue)
 {
-Random rend = new Random(2022);
+    // Random rend = new Random(2022);
+     Random rend = new Random();
     int rows = array.GetLength(0);
     int columns = array.GetLength(1);
 
@@ -18,6 +19,7 @@ Random rend = new Random(2022);
     {
         for (int column = 0; column < columns; column++) //  по колонкам  
         {
+            // array[row, column] = rend.Next(minValue, maxValue);
             array[row, column] = rend.Next(minValue, maxValue);
         }
 
@@ -49,12 +51,22 @@ int[,] SortArray(int[,] inArray)
     {
         for (int j = 1; j < columns - 1; j++)
         {
-                if (inArray[i, j] > inArray[i, j + 1]) {
+            for (int k = j + 1; k < columns; k++)
+            {
+
+                if (inArray[i, j] > inArray[i, k])
+                {
                     int temp = inArray[i, j];
+<<<<<<< HEAD
                     inArray[i, j] = inArray[i, j + 1];
                     inArray[i, j + 1] = temp;
                     
+=======
+                    inArray[i, j] = inArray[i, k];
+                    inArray[i, k] = temp;
+>>>>>>> 0555d73f4bd549a8e9441bf84ea3a07716cf9200
                 }
+            }
         }
     }
     return inArray;
@@ -63,15 +75,19 @@ int[,] SortArray(int[,] inArray)
 void Main()
 {
 
-    Console.Clear();
+    // Console.Clear();
 
     Console.WriteLine($"\n Задача 54: Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.\n");
 
 
+<<<<<<< HEAD
     int [,] array = CreateArray(5,5);
+=======
+    int[,] array = CreateArray(6, 6);
+>>>>>>> 0555d73f4bd549a8e9441bf84ea3a07716cf9200
     FillArray(array, 0, 10);
-    
-    int[,] arr =  SortArray(array);
+
+    int[,] arr = SortArray(array);
     PrintArray(arr);
     System.Console.WriteLine();
     PrintArray(array);
