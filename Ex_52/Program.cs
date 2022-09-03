@@ -65,6 +65,7 @@ double[] Input(int[,] numberArray)
 }
 
 
+
 void PrintTwo (double[] fillArrayNumbers)
 {
     for (int i = 0; i < fillArrayNumbers.Length; i++)
