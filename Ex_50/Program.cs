@@ -1,5 +1,6 @@
 ﻿/*
-Задача 50. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, и возвращает значение этого элемента или же указание, что такого элемента нет.
+Задача 50. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, 
+и возвращает значение этого элемента или же указание, что такого элемента нет.
 
 Например, задан массив:
 
@@ -39,14 +40,14 @@ for (int row = 0; row < m; row++) //  по строчкам
 
 */
 
-int [,] CreateArray(int rows, int сolumns) // метот который принимает столбцы и строки 
+int[,] CreateArray(int numberArray) // метот который принимает столбцы и строки 
 {
-    return new int [rows,  сolumns];
+    return new int[numberArray, numberArray];
 }
 
 void FillArray(int[,] array, int minValue, int maxValue)
 {
-   
+
     int rows = array.GetLength(0);
     int columns = array.GetLength(1);
 
@@ -54,13 +55,13 @@ void FillArray(int[,] array, int minValue, int maxValue)
     {
         for (int column = 0; column < columns; column++) //  по колонкам  
         {
-            array[row, column] = new Random().Next(minValue,  maxValue); 
+            array[row, column] = new Random().Next(minValue, maxValue);
         }
-        
+
     }
 }
 
-void PrintArray (int [,] array)
+void PrintArray(int[,] array)
 {
     int rows = array.GetLength(0);
     int columns = array.GetLength(1);
@@ -75,41 +76,55 @@ void PrintArray (int [,] array)
     }
 }
 
-int Input(string text)
+(int, string) Input(int[,] numberArray, int columns, int rows)
 {
-    
-    // int Parse(); //  преобразовать строку в число 
-    // int.TryParse(); // я попробую преобразовать, если получится лили не получится я сообщу 
-    bool f = false;
-    int number = 0;
-    while( !f ) //цикл пока не фолс
+
+    var numb = 0;
+    var text = "good";
+    if (columns <= numberArray.GetLength(0) && rows <= numberArray.GetLength(1))
     {
-        System.Console.WriteLine(text);
-        string str = Console.ReadLine();
-        f = int.TryParse(str, out number);
+        numb = numberArray[columns, rows];
     }
-    return number;
+    else
+    {
+        text = "error";
+    }
+    var res = (numb, text);
+    return res;
 }
 
-void Main ()
+void Main()
 {
 
     Console.Clear();
 
-    Console.WriteLine($"\nЗадача 50. Напишите программу, которая на вход принимает позиции элемента в \n двумерном массиве, и возвращает значение этого элемента или же указание, что такого элемента нет.\n");
+    Console.WriteLine($"\n  Задача 50. Напишите программу, которая на вход принимает позиции элемента в \n двумерном массиве, и возвращает значение этого элемента или же указание, что такого элемента нет.\n");
 
 
-     int m = Input("rows");
-    int n = Input("columns");
+    // int m = Input("rows");
+    // int n = Input("columns");
     // int[,] matrix = CreateArray(m,n);
 
-if (m>= 0 && n >=0)
-{int [,] matrix = CreateArray( n,m);
-FillArray(matrix, 10, 20);
-PrintArray(matrix);
+    Console.WriteLine("（╹◡╹） введите размерность двумерного массива - ");
 
 
-}
+    int numberArray = Convert.ToInt32(Console.ReadLine());
+    int[,] matrix = CreateArray(numberArray);
+
+    FillArray(matrix, 10, 20);
+
+    PrintArray(matrix);
+
+    // int[,] FillArray = GetFillArrayNumbers(numberArray);
+    Console.WriteLine();
+    Console.Write("введите столбец искомого числа - ");
+    int columns = Convert.ToInt32(Console.ReadLine());
+    Console.Write("введите строку искомого числа - ");
+    int rows = Convert.ToInt32(Console.ReadLine());
+    var numberInArray = Input (matrix, columns, rows);
+    Console.WriteLine(numberInArray);
+
+
 
 }
 

@@ -1,89 +1,104 @@
 ﻿/*
 Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
 
-Например, задан массив:
-1 4 7 2
-5 9 2 3
-8 4 2 4
-Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.s
 */
 
+// с методами 
+/*
+1 - создание массива 
+2 - заполнение массива 
+3 - печать 
+4 -
 
-// Console.Write("Введите строку:");
-// int pos1 = Convert.ToInt32(Console.ReadLine()) - 1;
-// Console.Write("Введите столбец:");
-// int pos2 = Convert.ToInt32(Console.ReadLine()) - 1;
-// int n = 5; // размер массива
-// int m = 7; // размер массива
-// Random random = new Random();
-// int[,] arr = new int[n, m];
-// Console.WriteLine("Исходный массив:");
-// for (int i = 0; i < arr.GetLength(0); i++)
-// {
-//     for (int j = 0; j < arr.GetLength(1); j++)
-//     {
-//         arr[i, j] =  random.Next(10, 99);
-//         Console.Write("{0} ", arr[i, j]);
-//     }
-//     Console.WriteLine();
-// }
-// if (pos1 < 0 | pos1 > arr.GetLength(0) - 1 | pos2 < 0 | pos2 > arr.GetLength(1) - 1)
-// {
-//     Console.WriteLine("Элемент не существует");
-// }
-// else
-// {
-//     Console.WriteLine("Значение элемента массива = {0}", arr[pos1, pos2]);
-// }
-// Console.ReadLine();
+*/
 
-int[,] arrayWhole = new int[m, n];
-arrayWhole = TransformationArrayWhole(array);
-
-WriteArrayInt(arrayWhole);
-
-Console.Write($"\nCреднее арифметическое:\n");
-for (int i = 0; i < n; i++)
+int[,] CreateArray(int numberArray) // метот который принимает столбцы и строки 
 {
-    double arithmeticMean = 0;
-    for (int j = 0; j < m; j++)
-    {
-        arithmeticMean += arrayWhole[j, i];
-    }
-    arithmeticMean = Math.Round(arithmeticMean / m, 1);
-    Console.WriteLine($"столбца № {i + 1} {arithmeticMean}");
+    return new int[numberArray, numberArray];
 }
 
-int[,] TransformationArrayWhole(double[,] array)
+void FillArray(int[,] array, int minValue, int maxValue)
 {
-    int[,] arrayWhole = new int[array.GetLength(0), array.GetLength(1)];
-    for (int i = 0; i < array.GetLength(0); i++)
+
+    int rows = array.GetLength(0);
+    int columns = array.GetLength(1);
+
+    for (int row = 0; row < rows; row++) //  по строчкам 
     {
-        for (int j = 0; j < array.GetLength(1); j++)
+        for (int column = 0; column < columns; column++) //  по колонкам  
         {
-            arrayWhole[i, j] = Convert.ToInt32(array[i, j]);
+            array[row, column] = new Random().Next(minValue, maxValue);
         }
+
     }
-    return arrayWhole;
 }
 
-void WriteArrayInt(int[,] arrayWhole)
+void PrintArray(int[,] array)
 {
-    for (int i = 0; i < m; i++)
+    int rows = array.GetLength(0);
+    int columns = array.GetLength(1);
+
+    for (int row = 0; row < rows; row++) //  по строчкам 
     {
-        for (int j = 0; j < n; j++)
+        for (int column = 0; column < columns; column++) //  по колонкам  
         {
-            Console.Write(arrayWhole[i, j] + " ");
+            Console.Write($"{array[row, column],3}");
         }
         Console.WriteLine();
     }
 }
 
+
+double[] Input(int[,] numberArray)
+{
+    double[] ArrayNumbs = new double[numberArray.GetLength(0)];
+    double sum = 0;
+    for (int j = 0; j < numberArray.GetLength(1); j++)
+    {
+        for (int i = 0; i < numberArray.GetLength(0); i++)
+        {
+            sum += numberArray[i, j];
+        }
+        ArrayNumbs[j] = sum / numberArray.GetLength(0);
+    }
+    return ArrayNumbs;
+}
+
+
+void PrintTwo (double[] fillArrayNumbers)
+{
+    for (int i = 0; i < fillArrayNumbers.Length; i++)
+    {
+        Console.Write($"{fillArrayNumbers[i]} ");
+    }
+    Console.WriteLine();
+}
+
 void Main()
 {
+
     Console.Clear();
 
-    Console.WriteLine($"\nЗадача 52.\n");
+    Console.WriteLine($"\n Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.\n");
+
+
+    Console.WriteLine("（╹◡╹） введите размерность двумерного массива - ");
+
+
+    int numberArray = Convert.ToInt32(Console.ReadLine());
+    int[,] matrix = CreateArray(numberArray);
+
+    FillArray(matrix, 10, 20);
+
+    PrintArray(matrix);
+
+    Console.WriteLine();
+
+    Console.WriteLine();
+    double[] averageArray = Input(matrix);
+    PrintTwo(averageArray);
+
 
 }
+
 Main();

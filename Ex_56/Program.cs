@@ -1,5 +1,5 @@
 ﻿/*
-Задача 54: Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.
+Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
 */
 Console.WriteLine("Hello, World!");
 
@@ -44,20 +44,16 @@ int[,] SortArray(int[,] inArray)
 {
     int rows = inArray.GetLength(0);
     int columns = inArray.GetLength(1);
+    int count=0;
 
     for (int i = 0; i < rows; i++)
     {
-        for (int j = 1; j < columns - 1; j++)
+        for (int j = 0; j < columns; j++)
         {
-                if (inArray[i, j] > inArray[i, j + 1]) {
-                    int temp = inArray[i, j];
-                    inArray[i, j] = inArray[i, j + 1];
-                    inArray[i, j + 1] = temp;
-                    
-                }
+               count++;
         }
     }
-    return inArray;
+    return $"разница чисел мин. макс. в массиве - {count}";
 }
 
 void Main()
@@ -65,7 +61,7 @@ void Main()
 
     Console.Clear();
 
-    Console.WriteLine($"\n Задача 54: Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.\n");
+    Console.WriteLine($"\n Задача 56 Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.\n");
 
 
     int [,] array = CreateArray(5,5);
