@@ -1,65 +1,159 @@
-﻿//          Задача:
-//   Дан целочисленный массив. Найти среднее арифметическое каждого из столбцов.
-//          Программма:
+﻿/*
+Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.
+*/
+// Console.WriteLine("Hello, World!");
 
-int[,] GetFillArrayNumbers (int columns, int rows)
+int[,] CreateArray(int rows, int сolumns) // метот который принимает столбцы и строки 
 {
-    int[,] fillArrayNumbers = new int[columns, rows];
-    for (int i = 0; i < fillArrayNumbers.GetLength(0); i++)
-    {
-        for (int j = 0; j < fillArrayNumbers.GetLength(1); j++)
-        {
-            fillArrayNumbers[i, j] = new Random().Next(0, 20);
-        }
-    }
-    return fillArrayNumbers;
+    return new int[rows, сolumns];
 }
 
-double[] GetAverageArrayNumbs (int[,] fillArrayNumbers)
+void FillArray(int[,] array, int minValue, int maxValue)
 {
-    double[] averageArrayNumbs = new double[fillArrayNumbers.GetLength(0)]; 
-    double summaNumbers = 0;
-    for (int j = 0; j < fillArrayNumbers.GetLength(1); j++)
+Random rend = new Random(2022);
+    int rows = array.GetLength(0);
+    int columns = array.GetLength(1);
+
+    for (int row = 0; row < rows; row++) //  по строчкам 
     {
-        for (int i = 0; i < fillArrayNumbers.GetLength(0); i++)
+        for (int column = 0; column < columns; column++) //  по колонкам  
         {
-            summaNumbers += fillArrayNumbers[i, j];
+            array[row, column] = rend.Next(minValue, maxValue);
         }
-        averageArrayNumbs[j] = summaNumbers / fillArrayNumbers.GetLength(0);
+
     }
-    return averageArrayNumbs;
 }
 
-void PrintTwoArray (int[,] fillArrayNumbers)
+void PrintArray(int[,] array)
 {
-    int columns = fillArrayNumbers.GetLength(0);
-    int rows = fillArrayNumbers.GetLength(1);
-    for (int i = 0; i < columns; i++)
+    int rows = array.GetLength(0);
+    int columns = array.GetLength(1);
+
+    for (int row = 0; row < rows; row++) //  по строчкам 
     {
-        for (int j = 0; j < rows; j++)
+        for (int column = 0; column < columns; column++) //  по колонкам  
         {
-            Console.Write($"{fillArrayNumbers[i, j]:d3} ");
+            Console.Write($"{array[row, column],3}");
         }
         Console.WriteLine();
     }
 }
 
-void PrintOneArray (double[] fillArrayNumbers)
+int[,] SortArray(int[,] inArray)
+
 {
-    for (int i = 0; i < fillArrayNumbers.Length; i++)
+    int rows = inArray.GetLength(0);
+    int columns = inArray.GetLength(1);
+    int count=0;
+
+    for (int i = 0; i < rows; i++)
     {
-        Console.Write($"{fillArrayNumbers[i]} ");
+        for (int j = 0; j < columns; j++)
+        {
+               count++;
+        }
     }
-    Console.WriteLine();
+    return $"разница чисел мин. макс. в массиве - {count}";
 }
 
-Console.Write("введите количество столбцов двумерного массива - ");
-int columns = Convert.ToInt32(Console.ReadLine());
-Console.Write("введите количество строк двумерного массива - ");
-int rows = Convert.ToInt32(Console.ReadLine());
-int[,] fillArray = GetFillArrayNumbers(columns, rows);
-Console.WriteLine();
-PrintTwoArray(fillArray);
-Console.WriteLine();
-double[] averageArray = GetAverageArrayNumbs(fillArray);
-PrintOneArray(averageArray);
+void Main()
+{
+
+    Console.Clear();
+
+    Console.WriteLine($"\n Задача 56 Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с наименьшей суммой элементов.\n");
+
+
+    int [,] array = CreateArray(5,5);
+    FillArray(array, 0, 10);
+    
+    int[,] arr =  SortArray(array);
+    PrintArray(arr);
+    System.Console.WriteLine();
+    PrintArray(array);
+}
+
+Main();
+// =======
+﻿/*
+Задача 56: Задайте прямоугольный двумерный массив.
+ Напишите программу, которая будет находить строку с наименьшей суммой элементов.
+
+Программа считает сумму элементов в каждой строке и выдаёт номер строки с наименьшей суммой элементов: 1 строка
+*/
+// Console.WriteLine("Hello, World!");
+
+// int[,] CreateArray(int rows, int сolumns) // метот который принимает столбцы и строки 
+// {
+//     return new int[rows, сolumns];
+// }
+
+// void FillArray(int[,] array, int minValue, int maxValue)
+// {
+//     // Random rend = new Random(2022);
+//      Random rend = new Random();
+//     int rows = array.GetLength(0);
+//     int columns = array.GetLength(1);
+
+//     for (int row = 0; row < rows; row++) //  по строчкам 
+//     {
+//         for (int column = 0; column < columns; column++) //  по колонкам  
+//         {
+//             // array[row, column] = rend.Next(minValue, maxValue);
+//             array[row, column] = rend.Next(minValue, maxValue);
+//         }
+
+//     }
+// }
+
+// void PrintArray(int[,] array)
+// {
+//     int rows = array.GetLength(0);
+//     int columns = array.GetLength(1);
+
+//     for (int row = 0; row < rows; row++) //  по строчкам 
+//     {
+//         for (int column = 0; column < columns; column++) //  по колонкам  
+//         {
+//             Console.Write($"{array[row, column],3}");
+//         }
+//         Console.WriteLine();
+//     }
+// }
+
+// int[,] SortSumArray(int[,] inArray)
+
+// {
+//     int rows = inArray.GetLength(0);
+//     int columns = inArray.GetLength(1);
+//     int count =0;
+
+//     for (int i = 0; i < rows; i++)
+//     {
+//         for (int j = 0; j < columns; j++)
+//         {
+//           System.Console.WriteLine(inArray[i] + "");
+//         }
+//     }
+//     return inArray ;
+// }
+
+// void Main()
+// {
+
+//     // Console.Clear();
+
+//     Console.WriteLine($"\n Задача 56: Задайте прямоугольный двумерный массив. \n Напишите программу, которая будет находить строку с наименьшей суммой элементов.\n");
+
+
+//     int[,] array = CreateArray(6, 6);
+//     FillArray(array, 0, 10);
+//     PrintArray(array);
+//     System.Console.WriteLine();
+
+//     int[,] arr = SortSumArray(array);
+//     PrintArray(arr);
+// }
+
+// Main();
+// // >>>>>>> 0555d73f4bd549a8e9441bf84ea3a07716cf9200
