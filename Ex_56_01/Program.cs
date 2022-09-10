@@ -68,10 +68,11 @@ int[,] SortSumArray(int[,] inSunArray)
     return inSunArray ;
 }
 
-int SortMinArray (int[,] inSunArray)
+int[,] SortMinArray (int[,] inSunArray)
 {
 
     int minSumColumn =0;
+    int MaxValue = 0;
     int rowsMin = 0;
     int sumColumn = 0;
 
@@ -86,9 +87,9 @@ int SortMinArray (int[,] inSunArray)
             minSumColumn = sumColumn;
             rowsMin = i;
         }
-        // sumColumn=0;
+        // sumColumn=0;   чегото тут не работает 
     }
-    return rowsMin;
+    return inSunArray;
 }
 
 void Main()

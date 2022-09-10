@@ -50,7 +50,7 @@ int[,] SortArray(int[,] inArray)
 
     for (int i = 0; i < rows; i++)
     {
-        for (int j = 1; j < columns - 1; j++)
+        for (int j = 0; j < columns - 1; j++)
         {
             for (int k = j + 1; k < columns; k++)
             {
