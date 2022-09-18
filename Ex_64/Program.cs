@@ -20,7 +20,7 @@ void Print(int[] array)
     Console.WriteLine();
 }
 
-Console.Write("введите начальное значение натуральных чисел М - ");
+Console.Write("Enter strings: ");
 int number1 = Convert.ToInt32(Console.ReadLine());
 Console.Write("введите конечное значение натуральных чисел Н - ");
 int number2 = Convert.ToInt32(Console.ReadLine());
